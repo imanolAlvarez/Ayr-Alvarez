@@ -1,0 +1,11 @@
+[08-Jan-2014 18:33:52] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'root'@'localhost' (using password: NO) in /home/celinade/public_html/clientes/pasaje_rodrigo/controller/mailchimp.php on line 9
+[08-Jan-2014 19:54:46] PHP Notice:  Undefined variable: promovig in /home/celinade/public_html/clientes/pasaje_rodrigo/views/Cupon/ABM_cupon.php on line 18
+[08-Jan-2014 19:54:46] PHP Notice:  Undefined variable: monto in /home/celinade/public_html/clientes/pasaje_rodrigo/views/Cupon/ABM_cupon.php on line 23
+[08-Jan-2014 19:54:46] PHP Notice:  Undefined variable: cantidad in /home/celinade/public_html/clientes/pasaje_rodrigo/views/Cupon/ABM_cupon.php on line 25
+[08-Jan-2014 19:54:46] PHP Notice:  Undefined variable: cantidad in /home/celinade/public_html/clientes/pasaje_rodrigo/views/Cupon/ABM_cupon.php on line 26
+[08-Jan-2014 19:54:46] PHP Notice:  Undefined variable: cantidad in /home/celinade/public_html/clientes/pasaje_rodrigo/views/Cupon/ABM_cupon.php on line 28
+[08-Jan-2014 19:56:18] PHP Notice:  Undefined variable: promovig in /home/celinade/public_html/clientes/pasaje_rodrigo/views/Cupon/ABM_cupon.php on line 18
+[08-Jan-2014 19:56:18] PHP Notice:  Undefined variable: monto in /home/celinade/public_html/clientes/pasaje_rodrigo/views/Cupon/ABM_cupon.php on line 23
+[08-Jan-2014 19:56:18] PHP Notice:  Undefined variable: cantidad in /home/celinade/public_html/clientes/pasaje_rodrigo/views/Cupon/ABM_cupon.php on line 25
+[08-Jan-2014 19:56:18] PHP Notice:  Undefined variable: cantidad in /home/celinade/public_html/clientes/pasaje_rodrigo/views/Cupon/ABM_cupon.php on line 26
+[08-Jan-2014 19:56:18] PHP Notice:  Undefined variable: cantidad in /home/celinade/public_html/clientes/pasaje_rodrigo/views/Cupon/ABM_cupon.php on line 28
