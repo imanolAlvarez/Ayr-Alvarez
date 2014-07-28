@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-07-2014 a las 20:34:49
+-- Tiempo de generación: 28-07-2014 a las 21:48:40
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -19,6 +19,224 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `veterinaria`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categoria_servicio`
+--
+
+CREATE TABLE IF NOT EXISTS `categoria_servicio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cat_producto`
+--
+
+CREATE TABLE IF NOT EXISTS `cat_producto` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dni` int(11) NOT NULL,
+  `numero` int(11) DEFAULT NULL,
+  `apellido` varchar(40) DEFAULT NULL,
+  `nombre` varchar(40) DEFAULT NULL,
+  `mail` varchar(40) DEFAULT NULL,
+  `fnac` date DEFAULT NULL,
+  `telefono` varchar(40) DEFAULT NULL,
+  `domicilio` varchar(40) DEFAULT NULL,
+  `activo` tinyint(1) DEFAULT NULL,
+  `zona` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `dni`, `numero`, `apellido`, `nombre`, `mail`, `fnac`, `telefono`, `domicilio`, `activo`, `zona`) VALUES
+(1, 32313424, 2, 'Arana', 'Sara', 'sara@hotmail.com', '2010-10-10', '(0221)155409360', '4 y 33', 1, '63'),
+(2, 44444444, 3, 'Pipo', 'Gonzalo', 'mimail@gmail.com', '1986-12-12', '(011)15530456', '71 n443', 1, '63');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalle_venta`
+--
+
+CREATE TABLE IF NOT EXISTS `detalle_venta` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `numero` int(11) NOT NULL,
+  `precio_unitario` float NOT NULL,
+  `descuento` float NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `id_venta` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `id_servicio` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `mascota`
+--
+
+CREATE TABLE IF NOT EXISTS `mascota` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) NOT NULL,
+  `fecha_nacimiento` date NOT NULL,
+  `diagnostico` varchar(30) NOT NULL,
+  `tratamiento` varchar(30) NOT NULL,
+  `descripcion` text NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `menu`
+--
+
+CREATE TABLE IF NOT EXISTS `menu` (
+  `id_menu` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(300) DEFAULT NULL,
+  `imagen` varchar(300) DEFAULT NULL,
+  `destino` varchar(600) DEFAULT NULL,
+  `perfil` varchar(600) DEFAULT NULL,
+  `activo` int(1) DEFAULT NULL,
+  `padre` int(11) DEFAULT NULL,
+  `submenu` int(1) DEFAULT NULL,
+  `orden` int(3) DEFAULT NULL,
+  PRIMARY KEY (`id_menu`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
+
+--
+-- Volcado de datos para la tabla `menu`
+--
+
+INSERT INTO `menu` (`id_menu`, `descripcion`, `imagen`, `destino`, `perfil`, `activo`, `padre`, `submenu`, `orden`) VALUES
+(1, 'Administrar', NULL, '#', 'Administrador', 1, 0, 0, 1),
+(3, 'Clientes', NULL, 'ABM_clientes.php', 'Administrador', 1, 1, 1, 2),
+(4, 'Usuarios', NULL, 'ABM_usuario.php', 'Administrador', 1, 1, 1, 3),
+(12, 'Proveedores', NULL, 'ABM_proveedores.php', 'Administrador', 1, 1, 1, 4),
+(13, 'Productos', NULL, 'ABM_proveedores.php', 'Administrador', 1, 1, 1, 5),
+(15, 'Servicios', NULL, 'ABM_proveedores.php', 'Administrador', 1, 1, 1, 6),
+(17, 'Compras', NULL, '#', 'Administrador', 1, 0, 0, 7),
+(18, 'Registrar Factura', NULL, '#', 'Administrador', 1, 17, 1, 8),
+(19, 'Cargar Mercaderia', NULL, '#', 'Administrador', 1, 17, 1, 9),
+(20, 'Orden de pago', NULL, '#', 'Administrador', 1, 17, 1, 10),
+(21, 'Ventas', NULL, '#', 'Administrador', 1, 0, 0, 11),
+(22, 'Facturar', NULL, '#', 'Administrador', 1, 21, 1, 12),
+(23, 'Consultar', NULL, '#', 'Administrador', 1, 0, 0, 13),
+(24, 'Entrada y Salida', NULL, '#', 'Administrador', 1, 23, 1, 14),
+(25, 'Movimientos', NULL, '#', 'Administrador', 1, 23, 1, 15),
+(26, 'Informes', NULL, '#', 'Administrador', 1, 0, 0, 16),
+(27, 'Stock critico', NULL, '#', 'Administrador', 1, 27, 1, 17),
+(28, 'Resumen de fondos', NULL, '#', 'Administrador', 1, 27, 1, 18),
+(29, 'algo mas', NULL, '#', 'Administrador', 1, 27, 1, 19);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `perfil`
+--
+
+CREATE TABLE IF NOT EXISTS `perfil` (
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `perfil`
+--
+
+INSERT INTO `perfil` (`id`, `descripcion`) VALUES
+(1, 'Administrador');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `producto`
+--
+
+CREATE TABLE IF NOT EXISTS `producto` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) NOT NULL,
+  `cod_barras` varchar(30) NOT NULL,
+  `precio_costo` float NOT NULL,
+  `precio_venta` float NOT NULL,
+  `util` int(3) NOT NULL,
+  `img` varchar(30) NOT NULL,
+  `id_cat_producto` int(11) NOT NULL,
+  `id_proveedor` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedor`
+--
+
+CREATE TABLE IF NOT EXISTS `proveedor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
+  `domicilio` varchar(30) NOT NULL,
+  `telefono` varchar(30) NOT NULL,
+  `descripcion` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `servicio`
+--
+
+CREATE TABLE IF NOT EXISTS `servicio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `precio_venta` float NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `cod_barras` varchar(30) NOT NULL,
+  `descripcion` varchar(30) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `stock`
+--
+
+CREATE TABLE IF NOT EXISTS `stock` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cantidad` int(11) NOT NULL,
+  `cantidad_minima` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -22298,6 +22516,41 @@ INSERT INTO `tbl_provincias` (`codProvincia`, `provincia`) VALUES
 ('AR-G', 'Santiago del Estero'),
 ('AR-V', 'Tierra del Fuego'),
 ('AR-T', 'Tucumán');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `id_perfil` varchar(50) DEFAULT NULL,
+  `activo` int(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `username`, `password`, `id_perfil`, `activo`) VALUES
+(2, 'admin', 'admin', '1', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `venta`
+--
+
+CREATE TABLE IF NOT EXISTS `venta` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `monto_total` float NOT NULL,
+  `fecha` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
