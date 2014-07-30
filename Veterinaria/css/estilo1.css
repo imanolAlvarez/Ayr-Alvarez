@@ -109,15 +109,15 @@ th, td {
 	 -webkit-border-radius: 3px;
    -moz-border-radius: 3px;
    border-radius: 3px;
+   border:rgba(116, 113, 113, 1) 1px 2px 2px;
 }
 .linkAlta:hover{
-
-background: #4D8D5A;
+	background: #4D8D5A;
 }
 
 
 .alta{
-margin-top:2%;
+	margin-top:2%; border:rgba(116, 113, 113, 1) 1px 2px 2px;
 }
 
 .contenedor{	
@@ -149,7 +149,7 @@ margin-top:2%;
 }
 
 .divbotcentrados input[type="submit"],input[type="button"] {	
-   border-top: 1px solid #96d1f8;
+  /* border-top: 1px solid #96d1f8;
    background: #096db0;
    -webkit-border-radius: 6px;
    -moz-border-radius: 6px;
@@ -159,21 +159,35 @@ margin-top:2%;
    box-shadow: rgba(0,0,0,1) 0 1px 0;
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
    color: white;
-   text-decoration: none;
+   text-decoration: none;*/
 }
+
+.par{background: #ccc;}
+
+.impar{background: #eee;}
 
 .contenedor2 input[type="button"],.contenedor2 input[type="reset"] ,.contenedor2 input[type="submit"]{
 	font-size:15px;
+	margin:3% 0 0 1%;
     padding: 0.7em;
 	color: white;
     text-decoration: none;
     vertical-align: middle;
-    background: #6BBA70;
+    background: #4D8D5A;
 	letter-spacing: 1px;
+	border:none;
+	box-shadow: rgba(116, 113, 113, 1) 1px 2px 2px;
 }
 
 .contenedor2 input[type="submit"]:hover ,.contenedor2 input[type="button"]:hover,.contenedor2 input[type="reset"]:hover {
-	background-color:#CDEB8B;
+	background-color:#6BBA70;
+}
+
+.contenedor2 input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+ /* padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;*/
+  border: 3px solid rgba(81, 203, 238, 1);
 }
 
 /* formulario de logueo*******************************************************************/
@@ -320,7 +334,7 @@ margin-left:15%;
 
 /* main level link */
 #nav a {
-	color: #ccc;
+	color: white;
 	font-size: 16px;
 	text-decoration: none;
 	display: inline;
@@ -348,7 +362,13 @@ margin-left:15%;
 }
 
 #nav .salir{
-	margin-left:45%;	
+	background-color: none;
+	float: right;
+	margin-right: 2%;	
+}
+#nav .salir  a{
+	background-color: #C6D8CD;
+		color: darkred;
 }
 
 #nav .salir a:hover {
